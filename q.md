@@ -1,11 +1,13 @@
 # Selenium × Node.js × Firefox 環境でブラウザのコンソールログを取得したい
 
+## 実装・期待動作・事象
+
 以下コードの `//<- point.1`,  `//<- point.2` の所のように、  
 selenium-webdriver の Builder に対して ログ取得を有効化する設定をしていて、  
 Logs.get() でコンソールログを取得できると期待していた(`//<- point.3` の所)のですが、  
 `WebDriverError` が Throw されてしまいます。  (`//<- point.4` の所)
 
-↓ 3-1and2.js ↓  (オリジナルは //todo 参照)  
+↓ 3-1and2.js ↓  (オリジナルは [repo](https://github.com/ikazoichikawa/q) 参照)  
 ```javascript
 const {Builder, Browser, Capabilities, logging} = require('selenium-webdriver');
 const {Options} = require('selenium-webdriver/firefox');
@@ -157,11 +159,11 @@ Preferences {
 `//<- point.1`,  `//<- point.2`　の設定が競合しているのかと思ったので、  
 以下2パターンを試してみましたが、同様に `WebDriverError` が Throw されてしまいます。  
 
- - `//<- point.1` だけ設定して `//<- point.2` は設定しない。 (//todo の `1-withCapabilities-setLoggingPrefs.js`)
- - `//<- point.1` は設定しないで `//<- point.2` だけ設定する。(//todo の `2-setFirefoxOptions-setPreference.js`)
+ - `//<- point.1` だけ設定して `//<- point.2` は設定しない。 ([repo](https://github.com/ikazoichikawa/q) の `1-withCapabilities-setLoggingPrefs.js`)
+ - `//<- point.1` は設定しないで `//<- point.2` だけ設定する。([repo](https://github.com/ikazoichikawa/q) の `2-setFirefoxOptions-setPreference.js`)
 
 また、Chrome(80.0.3987.149) × ChromeDriver 80.0.3987.106 であれば、  
-`//<- point.1` だけ設定して `//<- point.2` は設定しない状態で、コンソールログが取得できる事を確認しました。  
+`//<- point.1` だけ設定して `//<- point.2` は設定しない状態で、コンソールログが取得できる事を確認しました。([repo](https://github.com/ikazoichikawa/q) の `c-1-withCapabilities-setLoggingPrefs.js`)
 、、Firefox はもっと違った実装が必要なんでしょうか？  
 
 ## 環境
