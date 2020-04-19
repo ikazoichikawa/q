@@ -2,10 +2,15 @@
 
 ## 実装・期待動作・事象
 
-以下コードの `//<- point.1`,  `//<- point.2` の所のように、  
+表記の環境で Selenium をつかったブラウザ操作をしようとしています。
+
+実装したコードは以下なのですが、
+コード中、 `//<- point.1`,  `//<- point.2` の所のように、  
 selenium-webdriver の Builder に対して ログ取得を有効化する設定をしていて、  
-Logs.get() でコンソールログを取得できると期待していた(`//<- point.3` の所)のですが、  
-`WebDriverError` が Throw されてしまいます。  (`//<- point.4` の所)
+Logs.get() でコンソールログを取得できると期待していました(`//<- point.3` の所)。  
+ところが、`WebDriverError` が Throw されてしまいます。  (`//<- point.4` の所)
+
+Google Chrome 環境なら、__こうすれば取得できる__ という方法(下記 `2-setFirefoxOptions-setPreference.js` に記載した方法)はあるんですが、これを Firefox で実現したく、アドバイスいただけませんでしょうか、、
 
 ↓ 3-1and2.js ↓  (オリジナルは [repo](https://github.com/ikazoichikawa/q) 参照)  
 ```javascript
@@ -172,4 +177,4 @@ Windows10 (64bit)
 Node.js v12.16.1  
 selenium-webdriver 4.0.0-alpha.7  
 Firefox 74.0.1(64bit)  
-geckodriver 0.26.0  
+geckodriver 0.26.0
